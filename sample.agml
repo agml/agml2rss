@@ -1,0 +1,20 @@
+---
+title: example.com
+link: http://example.com
+description: this is just an example site
+language: Esperanto
+generator: agml2rss
+category: News/Technology
+---
+
+---
+title: first!
+link: example.com/first
+description: the first post for example.com
+---
+
+---
+title: second!
+link: example.com/second
+description: the second post for example.com
+---

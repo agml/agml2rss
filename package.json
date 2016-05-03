@@ -1,0 +1,14 @@
+{
+  "name": "agml2rss",
+  "version": "1.0.0",
+  "description": "convert agml to rss",
+  "main": "agml2rss.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "https://github.com/ansuz/",
+  "license": "ISC",
+  "dependencies": {
+    "agml": "^1.1.0"
+  }
+}
