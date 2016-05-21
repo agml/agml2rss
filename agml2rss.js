@@ -21,14 +21,16 @@ var swap=function(text,dict){
     });
 };
 
+var oneTab = '    ';
 rss.makeTag=function(type,content,indent){
     indent=indent||1;
+
     var outertabs='';
-    var innertabs='\t';
+    var innertabs=oneTab;
 
     for(i=1;i<indent;i++){
-        innertabs+='\t';
-        outertabs+='\t';
+        innertabs+=oneTab;
+        outertabs+=oneTab;
     }
 
     return swap(outertabs+'<{type}>\n{content}\n'+outertabs+'</{type}>',{
@@ -48,16 +50,37 @@ rss.makeFeed=function(source){
     agml.parse(source,results);
     var channel=results[0];
     var items=results.slice(1);
-    var channelXML=rss.makeTag('channel',channel,2);
-    var itemsXML=items.map(function(item){
 
-        return rss.makeTag('item',item,2);
+    var channelXML=Object.keys(channel).map(function (type) {
+        //console.log(type, channel[type]);
+        var tag = swap('<{type}>{content}</{type}>', {
+            type: type,
+            content: channel[type]
+        });
+        //rss.makeTag(key, channel, 2);
+        //console.log(tag);
+        return tag;
+    }).map(function (x) { return oneTab + oneTab + x; }).join('\n');
+
+    //console.log(channelXML);
+
+
+    //console.log(channel);
+    //process.exit();
+
+
+
+   // rss.makeTag('channel',channel,2);
+    var itemsXML=items.map(function(item){
+        return rss.makeTag('item', item, 3);
     }).join("\n");
 
     var frame=function(){/*<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
+    <channel>
 {channel}
 {items}
+    </channel>
 </rss>
 */}.toString().slice(14,-3);
 

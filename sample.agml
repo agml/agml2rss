@@ -2,19 +2,19 @@
 title: example.com
 link: http://example.com
 description: this is just an example site
-language: Esperanto
+language: en-ca
 generator: agml2rss
 category: News/Technology
 ---
 
 ---
 title: first!
-link: example.com/first
+link: http://example.com/first
 description: the first post for example.com
 ---
 
 ---
 title: second!
-link: example.com/second
+link: http://example.com/second
 description: the second post for example.com
 ---
