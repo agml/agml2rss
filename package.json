@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "agml2rss": "agml2rss.js"
+  },
   "author": "https://github.com/ansuz/",
   "license": "ISC",
   "dependencies": {
